@@ -1,0 +1,1 @@
+web: gunicorn sessionplanner.wsgi --log-file -

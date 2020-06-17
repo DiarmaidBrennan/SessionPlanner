@@ -1,1 +1,1 @@
-web: gunicorn sessionplanner.wsgi --log-file -
+web: gunicorn sessionplanner.wsgi

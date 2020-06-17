@@ -1,0 +1,63 @@
+.sidebar-nav {
+    margin-top: 20px;
+    padding: 0;
+    list-style: none;
+    background-color: #F0F7D4;
+    color: #347B98;
+    font-family: 'Courier New', Courier, monospace;
+    background: #F0F7D4;
+}
+
+    .footer {
+        position:absolute;
+        bottom:0;
+        width:100%;
+        height:60px;            /* Height of the footer */
+        background:#092834;
+        color: #B2D732;
+        text-align: center;
+        font-size: 12px;
+        padding: 10px 0px 10px 10px;
+    }
+
+    .header {
+        width:100%;
+        background:#092834;
+        padding:10px;
+        color: #B2D732;
+    }
+    
+
+    .html, .body {
+        width:100%;
+        background-color: #F0F7D4;
+        color: #347B98;
+        font-family: 'Courier New', Courier, monospace;
+        padding-bottom:60px;    /* Height of the footer */
+        padding: 0px 0px 60px 0px;
+        background: #F0F7D4;
+        a {
+  /* Specify non-transparent defaults to certain properties,
+     allowing them to be styled with the :visited state */
+  background-color: white;
+  border: 1px solid white;
+}
+
+
+        a:link {color:#B2D732;};    /* normal link */
+        a:visited {color:#B2D732;}; /* visited link */
+        a:hover {color:#B2D732;};   /* mouse over link */
+        a:active {color:#B2D732};   /* selected link */
+        }
+
+td.solid_fixed {
+    padding: 10px;
+    width: 1px;
+    white-space: nowrap;
+    border: 1px solid black;
+}
+
+table.solid, th.solid, td.solid {
+    padding: 10px;
+    border: 1px solid black;
+    }

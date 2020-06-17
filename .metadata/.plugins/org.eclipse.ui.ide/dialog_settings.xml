@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<list key="installedFeatures">
+		<item value="AnyEditTools:2.6.1.201711281546"/>
+		<item value="org.eclipse.egit:5.7.0.202003110725-r"/>
+		<item value="org.eclipse.emf.common:2.18.0.v20191225-1014"/>
+		<item value="org.eclipse.emf.ecore:2.21.0.v20200127-1342"/>
+		<item value="org.eclipse.epp.mpc:1.7.7.v20190521-1752"/>
+		<item value="org.eclipse.help:2.3.100.v20200305-0155"/>
+		<item value="org.eclipse.jgit.http.apache:5.7.0.202003110725-r"/>
+		<item value="org.eclipse.jgit.ssh.apache:5.7.0.202003110725-r"/>
+		<item value="org.eclipse.jgit:5.7.0.202003110725-r"/>
+		<item value="org.eclipse.platform:4.15.0.v20200305-0155"/>
+		<item value="org.eclipse.rcp:4.15.0.v20200305-0155"/>
+		<item value="org.eclipse.userstorage:1.2.0.v20190308-0433"/>
+		<item value="org.python.pydev.feature:7.6.0.202006041127"/>
+	</list>
+	<section name="ChooseWorkspaceDialogSettings">
+		<item key="DIALOG_X_ORIGIN" value="373"/>
+		<item key="DIALOG_Y_ORIGIN" value="242"/>
+	</section>
+	<section name="WORKBENCH_SETTINGS">
+		<list key="ENABLED_TRANSFERS">
+		</list>
+	</section>
+</section>

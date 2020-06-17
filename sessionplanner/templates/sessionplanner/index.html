@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+
+{% if training_session %}
+  {% for s in training_session %}
+  <table>
+  <tr>
+    <td><a href="{% url 'sessionplanner:detail' s.id %}">{{ s.name }}</a></td>
+  </tr>
+  {% endfor %}
+</table> 
+{% else %}
+Nothing Here
+{% endif %}
+{% endblock %}

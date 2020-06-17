@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<body class="body">
+    
+<h1>{{ game.name }}</h1>
+
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+{% if game %}
+ <table style="width:100%">
+  <tr>
+    <th>Key</th>
+    <th>Value</th>
+  </tr>
+  <tr>
+    <td>Description</td>
+    <td>{{ game.description }}</td>
+  </tr>
+  <tr>
+    <td>Mininum Number of Players</td>
+    <td>{{ game.min_num_players }}</td>
+  </tr>
+  <tr>
+    <td>Maximum Number of Players</td>
+    <td>{{ game.max_num_players }}</td>
+  </tr>
+  <tr>
+    <td>Scaleability</td>
+    <td>{{ game.scaleability }}</td>
+  </tr>
+</table> 
+{% endif %}
+</body>
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<table id="myTable2">
+  <tr>
+    <td><input type="text" id="myInput" onkeyup="myFunction(0, 'myInput')" placeholder="Filter on names.." title="Type in a name2"></td>
+    <td><input type="text" id="myInput2" onkeyup="myFunction(1, 'myInput2')" placeholder="Filter on min num players.." title="Type in a name"></td>
+    <td></td>
+    <td></td>
+  </tr>
+  </table>
+
+{% if name %}
+ <table id="myTable">
+  <tr>
+    <th>Game</th>
+    <th>Min Num Players</th>
+    <th>Max Num Players</th>
+    <th>Scalebility</th>
+  </tr>
+ 
+  {% for g in name %}
+  <tr>
+    <td><a href="{% url 'games:detail' g.id %}">{{ g.name }}</a></td>
+    <td>{{ g.min_num_players }}</td>
+    <td>{{ g.max_num_players }}</td>
+    <td>{{ g.scaleability }}</td>
+  </tr>
+  {% endfor %}
+</table> 
+{% endif %}
+{% endblock %}

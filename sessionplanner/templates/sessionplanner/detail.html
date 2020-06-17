@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<body class="body"> 
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+{% if object %}
+
+<h1> Session</h1>
+ <table style="width:100%">
+  <tr>
+    <td>Description</td>
+    <td>{{ object.name }}</td>
+  </tr>
+  <tr>
+    <td>Date</td>
+    <td>{{ object.date|date:'D d M Y H:i' }}</td>
+  </tr>
+</table> 
+
+<h1>Layout<br></h1>
+
+<table class="solid" style="width:100%">
+    <tr>
+        <td class="solid_fixed">Start Time</td>
+        <td class="solid_fixed">End Time</td>
+        <td class="solid">Game</td>
+    </tr>
+    
+    {% for item in object.section.all %}
+    <tr>
+        <td class="solid_fixed">{{item.start_time|date:'H:i'}}</td>
+        <td class="solid_fixed">{{item.end_time|date:'H:i'}}</td>
+        <td class="solid"><a href="{% url 'games:detail' item.game.id %}"> {{ item.game.name }}</td>   
+    </tr>
+    {% endfor %}
+</table>
+{% endif %}
+</body>
+{% endblock %}

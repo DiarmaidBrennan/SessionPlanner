@@ -1,1 +1,1 @@
-web: gunicorn SESSIONPLANNER/sessionplanner.wsgi
+web: gunicorn SESSIONPLANNER.wsgi

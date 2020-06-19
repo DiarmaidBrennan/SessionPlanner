@@ -1,26 +1,19 @@
 <!DOCTYPE html>
-<html class="html">
-    <head>
-        {% load static %}
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"> 
-        <link rel="stylesheet" type="text/css" href="{% static 'games/style.css' %}">
-    </head>
+    <html class="html">
+        <head>
+            {% load static %}
+            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+            <link rel="stylesheet" type="text/css" href="{% static 'games/style.css' %}">
+            <title>
+                Session Planner
+            </title>
+        </head>
         <div class="header">
             <table style="width:100%">
                 <tr>
-                    <th><a href="/games">Home</a></th>
+                    <th><a href="/">Home</a></th>
                     <th><a href="/games">Games</a></th>
                     <th><a href="/sessionplanner">Session Planner</a></th>
-                    <th>About Us</th>
-                    <th>Contact</th>
-                    <th>
-                        {% if user.is_authenticated %}
-                            <th>User: {{ user.get_username }}</th>
-                            <th><a href="{% url 'logout'%}?next={{request.path}}">Logout</a></th>   
-                        {% else %}
-                            <th><a href="{% url 'login'%}?next={{request.path}}">Login</a></th>   
-                        {% endif %} 
-                    </th>
                 </tr>
             </table>
         </div>
@@ -31,9 +24,14 @@
                 <div class="col-sm-2">
                     {% block sidebar %}
                     <ul class="sidebar-nav">
-                        <li><a href="">Home</a></li>
-                        <li><a href="">All books</a></li>
-                        <li><a href="">All authors</a></li>
+                        {% if user.is_authenticated %}
+                            <li>
+                            User: {{ user.get_username }}
+                            </li>
+                            <li>
+                            <a href="{% url 'logout'%}?next={{request.path}}">Logout</a>
+                            </li>
+                        {% endif %} 
                     </ul>
                     {% endblock %}
                 </div>
@@ -44,34 +42,28 @@
             </div>
         </div>
   
-  {% block pagination %}
-    {% if is_paginated %}
-        <div class="pagination">
-            <span class="page-links">
-                {% if page_obj.has_previous %}
-                    <a href="{{ request.path }}?page={{ page_obj.previous_page_number }}">previous</a>
-                {% endif %}
-                <span class="page-current">
-                    Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
-                </span>
-                {% if page_obj.has_next %}
-                    <a href="{{ request.path }}?page={{ page_obj.next_page_number }}">next</a>
-                {% endif %}
-            </span>
-        </div>
-    {% endif %}
-  {% endblock %} 
-  
-            
-            
-            
-            
-            
-        </div>
-   
-        <div class="footer">
-            Copyright IDEASLAB 2020
-        </div>
+        {% block pagination %}
+            {% if is_paginated %}
+                <div class="pagination">
+                    <span class="page-links">
+                        {% if page_obj.has_previous %}
+                            <a href="{{ request.path }}?page={{ page_obj.previous_page_number }}">previous</a>
+                        {% endif %}
+                        <span class="page-current">
+                            Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+                        </span>
+                        {% if page_obj.has_next %}
+                            <a href="{{ request.path }}?page={{ page_obj.next_page_number }}">next</a>
+                        {% endif %}
+                    </span>
+                </div>
+            {% endif %}
+        {% endblock %} 
     </div>
+   
+    <div class="footer">
+            Copyright IDEASLAB 2020
+    </div>
+</div>
 </html>
  

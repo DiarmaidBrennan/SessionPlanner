@@ -1,32 +1,87 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<table id="myTable2">
-  <tr>
-    <td><input type="text" id="myInput" onkeyup="myFunction(0, 'myInput')" placeholder="Filter on names.." title="Type in a name2"></td>
-    <td><input type="text" id="myInput2" onkeyup="myFunction(1, 'myInput2')" placeholder="Filter on min num players.." title="Type in a name"></td>
-    <td></td>
-    <td></td>
-  </tr>
-  </table>
 
-{% if name %}
- <table id="myTable">
-  <tr>
-    <th>Game</th>
-    <th>Min Num Players</th>
-    <th>Max Num Players</th>
-    <th>Scalebility</th>
-  </tr>
- 
-  {% for g in name %}
-  <tr>
-    <td><a href="{% url 'games:detail' g.id %}">{{ g.name }}</a></td>
-    <td>{{ g.min_num_players }}</td>
-    <td>{{ g.max_num_players }}</td>
-    <td>{{ g.scaleability }}</td>
-  </tr>
-  {% endfor %}
-</table> 
-{% endif %}
+<!--
+<script>
+    function myFunction(inputId, index) {
+        var input, filter, table, tr, td, i, txtValue;
+        input = document.getElementById(inputId);
+        filter = input.value.toUpperCase();
+        table = document.getElementById("games_table");
+        tr = table.getElementsByTagName("tr");
+        for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td")[index];
+                if (td) {
+                    txtValue = td.textContent || td.innerText;
+                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                        tr[i].style.display = "";
+                    } else {
+                    tr[i].style.display = "none";
+                }
+            }       
+        }
+    }
+    
+    function myFunction2(inputId, index) {
+        table = document.getElementById("games_table");
+        //  tr = table.getElementsByTagName("tr");
+        // Easier to use the rows collection:
+        var tr = table.rows;
+        
+        for (i = 0; i < tr.length; i++) {
+        
+          // Easier to use the cells collection
+          // td = tr[i].getElementsByTagName("td")[0];
+          cells = row.cells;
+        
+          // Loop over all the cells
+          for (var j=0, jLen=cells.length; j<jLen; j++) {
+            td = cells[j];
+        
+            // Existing loop
+            if (td) {
+              if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+                tr[i].style.display = "";
+              } else {
+                tr[i].style.display = "none";
+              }
+            }
+          }
+        }
+    }
+</script>
+
+
+<table>
+    <td><input type="text" id="input_min_num_players" onkeyup="myFunction2('input_min_num_players', 0)" placeholder="Filter on min num players.."></td>
+    <td><input type="text" id="input_scaleability" onkeyup="myFunction2('input_scaleability', 3)" placeholder="Filter on scaleability.."></td>
+</table>
+-->
+    
+    {% if name %}
+        <table id="games_table">
+            <tr>
+                <th>Game</th>
+                <th>Min Num Players</th>
+                <th>Max Num Players</th>
+                <th>Scalebility</th>
+            </tr>
+     
+        {% for g in name %}
+            <tr>
+                <td><a href="{% url 'games:detail' g.id %}">{{ g.name }}</a></td>
+                <td>{{ g.min_num_players }}</td>
+                <td>{{ g.max_num_players }}</td>
+                <td>{{ g.scaleability }}</td>
+            </tr>
+        {% endfor %}
+        </table> 
+
+    <script>
+        var tf = new TableFilter("games_table", { base_path: '' } );
+        tf.init();
+    </script>
+
+    {% endif %}
 {% endblock %}

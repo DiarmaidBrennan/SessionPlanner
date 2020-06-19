@@ -18,3 +18,4 @@ class IndexView(LoginRequiredMixin, generic.ListView):
 class DetailView(LoginRequiredMixin, generic.DetailView):
     model = Game
     template_name = 'games/detail.html'
+

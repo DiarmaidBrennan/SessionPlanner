@@ -5,14 +5,6 @@ from django.shortcuts import render
 
 from .models import SportsSession
 
-"""
-
-@todo:	add permissions to sessionplanner
-@todo:	filter on own sessions
-@todo:  paginate session planner
-
-"""
-
 class IndexView(LoginRequiredMixin, generic.ListView):
     model = SportsSession
     template_name = 'sessionplanner/index.html'

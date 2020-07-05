@@ -1,64 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
 
-
-<!--
-<script>
-    function myFunction(inputId, index) {
-        var input, filter, table, tr, td, i, txtValue;
-        input = document.getElementById(inputId);
-        filter = input.value.toUpperCase();
-        table = document.getElementById("games_table");
-        tr = table.getElementsByTagName("tr");
-        for (i = 0; i < tr.length; i++) {
-            td = tr[i].getElementsByTagName("td")[index];
-                if (td) {
-                    txtValue = td.textContent || td.innerText;
-                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                        tr[i].style.display = "";
-                    } else {
-                    tr[i].style.display = "none";
-                }
-            }       
-        }
-    }
-    
-    function myFunction2(inputId, index) {
-        table = document.getElementById("games_table");
-        //  tr = table.getElementsByTagName("tr");
-        // Easier to use the rows collection:
-        var tr = table.rows;
-        
-        for (i = 0; i < tr.length; i++) {
-        
-          // Easier to use the cells collection
-          // td = tr[i].getElementsByTagName("td")[0];
-          cells = row.cells;
-        
-          // Loop over all the cells
-          for (var j=0, jLen=cells.length; j<jLen; j++) {
-            td = cells[j];
-        
-            // Existing loop
-            if (td) {
-              if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
-                tr[i].style.display = "";
-              } else {
-                tr[i].style.display = "none";
-              }
-            }
-          }
-        }
-    }
-</script>
-
-
-<table>
-    <td><input type="text" id="input_min_num_players" onkeyup="myFunction2('input_min_num_players', 0)" placeholder="Filter on min num players.."></td>
-    <td><input type="text" id="input_scaleability" onkeyup="myFunction2('input_scaleability', 3)" placeholder="Filter on scaleability.."></td>
-</table>
--->
-    
     {% if name %}
         <table id="games_table">
             <tr>
@@ -66,14 +8,43 @@
                 <th>Min Num Players</th>
                 <th>Max Num Players</th>
                 <th>Scalebility</th>
-            </tr>
-     
+                <th>Technical Prof: Body Catch</th>
+                <th>Technical Prof: Punt Kick</th>
+                <th>Technical Prof: Pick Up</th>
+                <th>Technical Prof: Hand Pass</th>
+                <th>Technical Prof: Hook Kick</th>
+                <th>Technical Prof: Near Hand Tackle</th>
+                <th>Technical Prof: Block</th>
+                <th>Tactical Prowess</th>
+                <th>Team Play</th>
+                <th>Physical Fitness</th>
+                <th>Playing Facts</th>
+                <th>Psychological Focus</th>
+                <th>Coach to Player Ratio</th>
+                <th>Min Age</th>
+                <th>Max Age</th>
+            </tr>     
         {% for g in name %}
             <tr>
                 <td><a href="{% url 'games:detail' g.id %}">{{ g.name }}</a></td>
                 <td>{{ g.min_num_players }}</td>
                 <td>{{ g.max_num_players }}</td>
                 <td>{{ g.scaleability }}</td>
+                <td>{{ g.tech_prof_body_catch }}</td>
+                <td>{{ g.tech_prof_punt_kick }}</td>
+                <td>{{ g.tech_prof_pick_up }}</td>
+                <td>{{ g.tech_prof_hand_pass }}</td>
+                <td>{{ g.tech_prof_hook_kick }}</td>
+                <td>{{ g.tech_prof_near_hand_tackle }}</td>
+                <td>{{ g.tech_prof_block }}</td>
+                <td>{{ g.tactical_prowess }}</td>
+                <td>{{ g.team_play }}</td>
+                <td>{{ g.physical_fitness }}</td>
+                <td>{{ g.playing_facts }}</td>
+                <td>{{ g.psy_focus }}</td>
+                <td>{{ g.coach_to_player_ratio }}</td>
+                <td>{{ g.min_age }}</td>
+                <td>{{ g.max_age }}</td>
             </tr>
         {% endfor %}
         </table> 

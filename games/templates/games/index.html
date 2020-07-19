@@ -47,7 +47,11 @@
                 <td>{{ g.max_age }}</td>
             </tr>
         {% endfor %}
-        </table> 
+        </table>
+        <p>
+        <a href="{% url 'games:game_form' %}">Create New Game</a>
+        </p>
+
 
     <script>
         var tf = new TableFilter("games_table", { base_path: '' } );
